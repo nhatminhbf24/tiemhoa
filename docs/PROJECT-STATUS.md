@@ -1,10 +1,10 @@
 # Trạng thái dự án
 
-Cập nhật gần nhất: 2026-09-14
+Cập nhật gần nhất: 2026-09-24
 
 ## Giai đoạn hiện tại
 
-Đang xây dựng và kiểm tra MVP landing page Dâu Dâu sau khi Dâu xác nhận bản chốt cuối cùng.
+Đang chạy máy chủ xem trước local (cổng 4173); đã mở trình duyệt để Dâu trực tiếp xem thử giao diện thật của website.
 
 ## Đã hoàn thành
 
@@ -67,33 +67,25 @@ Cập nhật gần nhất: 2026-09-14
 
 ## Đang thực hiện
 
-- Hoàn tất kiểm tra kỹ thuật, tài liệu và điểm lưu Git cho MVP.
-- Chuẩn bị bản xem trước để Dâu duyệt giao diện chạy thật.
+- Đã rà soát toàn diện mã nguồn, giao diện, nội dung và tài nguyên của landing page Dâu Dâu.
+- Báo cáo chi tiết ý kiến đánh giá (thẩm mỹ, trải nghiệm người dùng, kỹ thuật và điểm cần hoàn thiện).
 
 ## Chưa quyết định hoặc để lại cho giai đoạn sau
 
-- Font chữ cụ thể; agent được chọn phương án dễ đọc tiếng Việt và có thể thay đổi sau.
-- Đường dẫn Zalo thực tế và khả năng điền sẵn lời nhắn cần được kiểm tra trên điện thoại.
-- Cách Tenten nhận diện/phục vụ bản build cần được thử khi triển khai.
-- Repository GitHub và tên miền sẽ sử dụng.
+- Thay dần ảnh AI bằng ảnh chụp sản phẩm hoa thật của Dâu.
+- Kiểm tra thực tế đường dẫn Zalo trên các dòng máy điện thoại của khách hàng.
+- Quyết định nơi lưu mã nguồn (GitHub) và chọn dịch vụ đưa website lên mạng (hosting) kèm tên miền.
 
 ## Kiểm tra gần nhất
 
-- Đã xác nhận không còn file công việc `$lichtet` trong thư mục; các tham chiếu cũ trong tài liệu trạng thái đã được dọn.
-- Đã kiểm tra đủ chín file ảnh trong thư mục concept: tám ảnh dùng cho website và một ảnh bàn tay v1 được giữ làm lịch sử thử nghiệm.
-- Bản build Vite đã hoàn thành thành công.
-- Bản xem trước trả về trạng thái hoạt động bình thường.
-- Đã kiểm tra trực quan trên màn hình máy tính và điện thoại 390 × 844 px.
-- Không có cuộn ngang ngoài ý muốn trên điện thoại; menu và thanh liên hệ cố định hoạt động đúng.
-- Đã phát hiện và sửa màu chữ của nút Zalo tại phần liên hệ trên điện thoại.
-- Không ghi nhận lỗi hoặc cảnh báo trong trình duyệt sau khi sửa.
-
-## Git
-
-- Đã khởi tạo Git repository với nhánh `main`.
-- Đã tạo commit MVP đầu tiên sau khi hoàn tất kiểm tra.
+- Đã giải thích cho Dâu về tác vụ chạy ngầm (máy chủ web local giữ website hoạt động).
+- Đã khắc phục triệt để lỗi font tiếng Việt:
+  + Tích hợp cặp Google Fonts: **Lora** (tiêu đề mềm mại, dịu dàng) + **Be Vietnam Pro** (nội dung thanh thoát, hỗ trợ 100% dấu tiếng Việt).
+  + Tối ưu `line-height` và `letter-spacing` tránh tình trạng các dấu hỏi/ngã/nặng bị dính hoặc nhảy chữ.
+- Đã chạy bản build Vite mới thành công cập nhật vào thư mục `dist/`.
+- Máy chủ xem trước `http://localhost:4173` đã cập nhật ngay các thay đổi font chữ mới.
 
 ## Bước tiếp theo
 
-- Dâu xem bản chạy thật và góp ý về bố cục, câu chữ hoặc mức độ chuyển động.
-- Sau khi Dâu duyệt giao diện: chuẩn bị repository GitHub, triển khai thử lên Tenten và kết nối tên miền.
+- Dâu tải lại trang (nhấn F5 hoặc Ctrl + F5 trên trình duyệt) để ngắm font chữ mới xem đã đủ độ mềm mại, dịu dàng chưa.
+- Nhận phản hồi tiếp theo của Dâu để tinh chỉnh hoặc tiến hành các bước đưa web lên mạng.
