@@ -80,13 +80,14 @@ Cập nhật gần nhất: 2026-09-24
 
 - Đã cấu hình máy chủ Node.js với file khởi chạy `app.js` để đồng bộ hoàn toàn với yêu cầu của hosting Tenten.
 - Đã cấu hình `package.json` với `"main": "app.js"`, `"start": "node app.js"`, `"postinstall": "vite build"`.
-- Đã thử nghiệm `node app.js` cục bộ thành công (phục vụ web tĩnh từ `dist/` đúng MIME types và SPA fallback).
-- Đã cài đặt Git và GitHub CLI chính thức trên máy.
-- Đã tạo commit Git lưu trữ toàn bộ mã nguồn sạch sẽ.
-- Đã đóng gói sẵn file `daudau-website.zip` ngoài màn hình Desktop hỗ trợ phương án Upload ZIP trực tiếp.
+- Đã liên kết remote `origin` tới `https://github.com/nhatminhbf24/tiemhoa.git`.
+- Đã đẩy (git push) toàn bộ mã nguồn lên nhánh `main` của GitHub thành công.
+- Mã nguồn trên GitHub đã bao gồm đầy đủ: file khởi chạy `app.js`, font chữ tiếng Việt chuẩn đẹp, và thư mục `dist/` đóng gói sẵn.
 
 ## Bước tiếp theo
 
-- Dâu chọn phương án triển khai:
-  + Phương án 1 (Nhanh nhất): Dùng tab "Upload ZIP" trên Tenten và chọn file `daudau-website.zip`.
-  + Phương án 2 (Dùng Git): Dâu tạo một repo trống trên GitHub rồi gửi link cho mình đẩy code lên.
+- Dâu copy đường dẫn Git: `https://github.com/nhatminhbf24/tiemhoa.git` dán vào ô "Đường dẫn Git" trên Tenten.
+- Chọn Tên miền (Domain) tương ứng trên Tenten.
+- Chọn phiên bản Node.js: `Node.js v24 (LTS)`.
+- Bấm nút **"Triển khai dự án ngay"**.
+- Kiểm tra kết quả sau khi Tenten báo triển khai thành công.

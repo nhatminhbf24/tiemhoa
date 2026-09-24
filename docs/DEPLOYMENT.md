@@ -4,8 +4,9 @@ Trạng thái: **Đã cấu hình hoàn tất cho hosting Tenten Node.js**.
 
 ## GitHub
 
-- Tài khoản: Chờ Dâu tạo repo hoặc cung cấp link repository.
-- Trạng thái Git local: Đã cài Git và commit toàn bộ mã nguồn cùng thư mục `dist/` đóng gói sẵn.
+- Repository chính thức: `https://github.com/nhatminhbf24/tiemhoa.git`
+- Nhánh: `main`
+- Trạng thái: Đã đồng bộ toàn bộ mã nguồn, cấu hình Node.js `app.js` và thư mục `dist/` đóng gói sẵn.
 
 ## Tenten Node.js Hosting
 
