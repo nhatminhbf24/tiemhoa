@@ -1,25 +1,21 @@
 # Triển khai website
 
-Trạng thái: **Chưa cấu hình triển khai**.
+Trạng thái: **Đã cấu hình hoàn tất cho hosting Tenten Node.js**.
 
 ## GitHub
 
-- Tài khoản hoặc tổ chức: _Chưa xác định._
-- Repository: _Chủ dự án sẽ tạo sau, trước giai đoạn deploy._
-- Public hay private: _Chưa xác định._
+- Tài khoản: Chờ Dâu tạo repo hoặc cung cấp link repository.
+- Trạng thái Git local: Đã cài Git và commit toàn bộ mã nguồn cùng thư mục `dist/` đóng gói sẵn.
 
-## Tenten
+## Tenten Node.js Hosting
 
-- Hình thức dự kiến: triển khai từ Git repository.
-- Tên miền: _Chủ dự án sẽ tạo/chốt sau, trước giai đoạn deploy._
-- Phiên bản Node.js hiển thị trong ảnh tham khảo: Node.js 24 LTS.
-- Nền tảng: Tenten Vibe Code Hosting / 1-Click Launch Website.
-- Tài liệu Tenten xác nhận hỗ trợ triển khai từ GitHub và các framework Node.js phổ biến, gồm React.
-- Node.js 24 phù hợp với yêu cầu phiên bản Node hiện tại của Vite.
-- Lệnh cài đặt dự kiến: `npm install` hoặc `npm ci`; sẽ chốt theo cơ chế tự nhận diện của Tenten sau khi tạo dự án.
-- Lệnh build của Vite: `npm run build`; thư mục kết quả mặc định là `dist`.
-- Cách Tenten nhận diện hoặc phục vụ thư mục `dist`: _Cần xác minh bằng lần triển khai thử._
-- Biến môi trường: dự kiến không cần cho MVP vì không có backend hoặc dữ liệu bí mật.
+- Nền tảng: Tenten Vibe Code Hosting (Node.js v24 LTS).
+- File khởi chạy (Startup file): `app.js` (phục vụ web tĩnh từ thư mục `dist`, tự động bắt cổng qua `process.env.PORT`).
+- Script khởi chạy trong `package.json`: `"start": "node app.js"`.
+- Đóng gói sẵn: Thư mục `dist/` đã được commit vào mã nguồn để Tenten không phải chờ build lại.
+- Hình thức tải lên hỗ trợ:
+  1. **Git Repo**: Dán đường link GitHub repo vào ô "Đường dẫn Git".
+  2. **Upload ZIP**: File nén `c:\Users\Admin\Desktop\daudau-website.zip` đã được tạo sẵn để tải lên trực tiếp.
 
 ## DNS và HTTPS
 

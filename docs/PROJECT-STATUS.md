@@ -78,14 +78,15 @@ Cập nhật gần nhất: 2026-09-24
 
 ## Kiểm tra gần nhất
 
-- Đã giải thích cho Dâu về tác vụ chạy ngầm (máy chủ web local giữ website hoạt động).
-- Đã khắc phục triệt để lỗi font tiếng Việt:
-  + Tích hợp cặp Google Fonts: **Lora** (tiêu đề mềm mại, dịu dàng) + **Be Vietnam Pro** (nội dung thanh thoát, hỗ trợ 100% dấu tiếng Việt).
-  + Tối ưu `line-height` và `letter-spacing` tránh tình trạng các dấu hỏi/ngã/nặng bị dính hoặc nhảy chữ.
-- Đã chạy bản build Vite mới thành công cập nhật vào thư mục `dist/`.
-- Máy chủ xem trước `http://localhost:4173` đã cập nhật ngay các thay đổi font chữ mới.
+- Đã cấu hình máy chủ Node.js với file khởi chạy `app.js` để đồng bộ hoàn toàn với yêu cầu của hosting Tenten.
+- Đã cấu hình `package.json` với `"main": "app.js"`, `"start": "node app.js"`, `"postinstall": "vite build"`.
+- Đã thử nghiệm `node app.js` cục bộ thành công (phục vụ web tĩnh từ `dist/` đúng MIME types và SPA fallback).
+- Đã cài đặt Git và GitHub CLI chính thức trên máy.
+- Đã tạo commit Git lưu trữ toàn bộ mã nguồn sạch sẽ.
+- Đã đóng gói sẵn file `daudau-website.zip` ngoài màn hình Desktop hỗ trợ phương án Upload ZIP trực tiếp.
 
 ## Bước tiếp theo
 
-- Dâu tải lại trang (nhấn F5 hoặc Ctrl + F5 trên trình duyệt) để ngắm font chữ mới xem đã đủ độ mềm mại, dịu dàng chưa.
-- Nhận phản hồi tiếp theo của Dâu để tinh chỉnh hoặc tiến hành các bước đưa web lên mạng.
+- Dâu chọn phương án triển khai:
+  + Phương án 1 (Nhanh nhất): Dùng tab "Upload ZIP" trên Tenten và chọn file `daudau-website.zip`.
+  + Phương án 2 (Dùng Git): Dâu tạo một repo trống trên GitHub rồi gửi link cho mình đẩy code lên.
