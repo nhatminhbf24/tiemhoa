@@ -1,6 +1,7 @@
 node_modules/
 .pnpm-store/
 .sites-runtime/
+.wrangler/
 .env
 .env.*
 !.env.example

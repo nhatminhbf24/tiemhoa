@@ -9,12 +9,17 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "postinstall": "vite build"
+    "postinstall": "vite build",
+    "pages:dev": "wrangler pages dev dist",
+    "pages:deploy": "wrangler pages deploy dist"
   },
   "dependencies": {
+    "@vitejs/plugin-react": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "@vitejs/plugin-react": "latest",
     "vite": "latest"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.2"
   }
 }

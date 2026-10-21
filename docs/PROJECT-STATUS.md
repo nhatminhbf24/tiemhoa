@@ -1,10 +1,10 @@
 # Trạng thái dự án
 
-Cập nhật gần nhất: 2026-09-24
+Cập nhật gần nhất: 2026-10-21
 
 ## Giai đoạn hiện tại
 
-Đang chạy máy chủ xem trước local (cổng 4173); đã mở trình duyệt để Dâu trực tiếp xem thử giao diện thật của website.
+Đã cấu hình và tối ưu toàn diện theo chuẩn Cloudflare Pages; sẵn sàng triển khai qua Git hoặc Wrangler CLI.
 
 ## Đã hoàn thành
 
@@ -25,7 +25,6 @@ Cập nhật gần nhất: 2026-09-24
 - Chủ dự án đồng ý với cấu trúc câu chuyện tám chương đã đề xuất.
 - Nhận logo tách nền 512 × 512 và chốt được bổ sung logo chữ Dâu Dâu.
 - Chốt dùng hình đôi bàn tay trong bản đầu, menu cuộn theo phần, nút chỉ đường, nhận cắm theo yêu cầu và chỉ dùng tiếng Việt.
-- Kiểm tra tài liệu Tenten Vibe Code Hosting: hỗ trợ GitHub và framework Node.js phổ biến như React.
 - Dâu đã duyệt bản nội dung tám chương và kế hoạch hình ảnh/chuyển động.
 - Đã tạo hai hình thử bằng ImageGen: hero v1 và đôi bàn tay cắm hoa v1; đã lưu trong dự án và ghi lại prompt.
 - Dâu duyệt phong cách tổng thể; yêu cầu chỉnh đôi bàn tay để phù hợp cô gái 25 tuổi có làn da trẻ, mềm mại.
@@ -40,6 +39,12 @@ Cập nhật gần nhất: 2026-09-24
 - Đã tích hợp nút Zalo, gọi điện, Google Maps và bộ hình AI đã duyệt.
 - Đã tạo bản JPEG tối ưu cho tám hình; tổng dung lượng giảm từ khoảng 17 MB xuống khoảng 1,7 MB mà vẫn giữ ảnh gốc.
 - Đã tạo favicon riêng từ màu và biểu tượng thương hiệu.
+- Đã hoàn tất chuẩn bị chuẩn Cloudflare Pages:
+  - Cấu hình `wrangler.jsonc` (project name `tiemhoa`, output `dist`).
+  - Cấu hình `.nvmrc` & `.node-version` (Node 22 LTS).
+  - Cấu hình `public/_headers` (Cache 1 năm cho assets, bảo mật header chuẩn hiện đại).
+  - Cài đặt `wrangler` devDependency và bổ sung lệnh `pages:dev`, `pages:deploy`.
+  - Kiểm thử thành công trên môi trường cục bộ Cloudflare.
 
 ## Quyết định đã xác nhận
 
@@ -61,33 +66,25 @@ Cập nhật gần nhất: 2026-09-24
 - Không dùng Stitch; không tạo đánh giá khách hàng giả.
 - Dùng logo tách nền tại `assets/brand/Logo-tachnen.png`; có thể bổ sung chữ nhưng không thay đổi biểu tượng.
 - Link Google Maps do chủ dự án cung cấp: `https://maps.app.goo.gl/EFBPFzMycUPTnpTg7`.
-- Runtime triển khai: Node.js 24 LTS.
-- Tech stack đã duyệt: React + Vite + CSS riêng, không backend và không cơ sở dữ liệu.
-- GitHub và tên miền được để lại cho giai đoạn deploy.
+- Nền tảng triển khai chính: Cloudflare Pages (duy trì `app.js` cho Tenten).
 
 ## Đang thực hiện
 
-- Đã rà soát toàn diện mã nguồn, giao diện, nội dung và tài nguyên của landing page Dâu Dâu.
-- Báo cáo chi tiết ý kiến đánh giá (thẩm mỹ, trải nghiệm người dùng, kỹ thuật và điểm cần hoàn thiện).
+- Chuẩn bị bước đẩy mã nguồn lên GitHub và kết nối với Cloudflare Pages.
 
 ## Chưa quyết định hoặc để lại cho giai đoạn sau
 
 - Thay dần ảnh AI bằng ảnh chụp sản phẩm hoa thật của Dâu.
 - Kiểm tra thực tế đường dẫn Zalo trên các dòng máy điện thoại của khách hàng.
-- Quyết định nơi lưu mã nguồn (GitHub) và chọn dịch vụ đưa website lên mạng (hosting) kèm tên miền.
+- Kết nối tên miền chính thức khi Dâu mua xong (trỏ DNS về Cloudflare).
 
 ## Kiểm tra gần nhất
 
-- Đã cấu hình máy chủ Node.js với file khởi chạy `app.js` để đồng bộ hoàn toàn với yêu cầu của hosting Tenten.
-- Đã cấu hình `package.json` với `"main": "app.js"`, `"start": "node app.js"`, `"postinstall": "vite build"`.
-- Đã liên kết remote `origin` tới `https://github.com/nhatminhbf24/tiemhoa.git`.
-- Đã đẩy (git push) toàn bộ mã nguồn lên nhánh `main` của GitHub thành công.
-- Mã nguồn trên GitHub đã bao gồm đầy đủ: file khởi chạy `app.js`, font chữ tiếng Việt chuẩn đẹp, và thư mục `dist/` đóng gói sẵn.
+- Đã chạy `pnpm build`: build thành công ra thư mục `dist/`.
+- Đã kiểm tra dev server Cloudflare Pages qua `wrangler pages dev dist`: máy chủ khởi chạy cổng 8788, header bảo mật và cache được phân tích chuẩn xác, kiểm tra request trả về HTTP 200 OK.
+- Đã kiểm tra các file cấu hình Cloudflare: `wrangler.jsonc`, `public/_headers`, `.nvmrc`, `.node-version`.
 
 ## Bước tiếp theo
 
-- Dâu copy đường dẫn Git: `https://github.com/nhatminhbf24/tiemhoa.git` dán vào ô "Đường dẫn Git" trên Tenten.
-- Chọn Tên miền (Domain) tương ứng trên Tenten.
-- Chọn phiên bản Node.js: `Node.js v24 (LTS)`.
-- Bấm nút **"Triển khai dự án ngay"**.
-- Kiểm tra kết quả sau khi Tenten báo triển khai thành công.
+- Đưa các thay đổi cấu hình lên repository GitHub (`git commit` & `git push`).
+- Vào Cloudflare Pages Dashboard, chọn Connect to Git với repo `nhatminhbf24/tiemhoa` để triển khai.
