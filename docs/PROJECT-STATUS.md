@@ -4,7 +4,7 @@ Cập nhật gần nhất: 2026-10-21
 
 ## Giai đoạn hiện tại
 
-Đã cấu hình và tối ưu toàn diện theo chuẩn Cloudflare Pages; sẵn sàng triển khai qua Git hoặc Wrangler CLI.
+Website đã được triển khai chính thức thành công trên **Cloudflare Pages** tại địa chỉ: **https://tiemhoa.pages.dev**.
 
 ## Đã hoàn thành
 
@@ -45,6 +45,8 @@ Cập nhật gần nhất: 2026-10-21
   - Cấu hình `public/_headers` (Cache 1 năm cho assets, bảo mật header chuẩn hiện đại).
   - Cài đặt `wrangler` devDependency và bổ sung lệnh `pages:dev`, `pages:deploy`.
   - Kiểm thử thành công trên môi trường cục bộ Cloudflare.
+- Đã đẩy (git push) toàn bộ mã nguồn cấu hình lên nhánh `main` của GitHub repo `nhatminhbf24/tiemhoa`.
+- Đã khởi tạo dự án và triển khai thành công lên Cloudflare Pages (`https://tiemhoa.pages.dev`).
 
 ## Quyết định đã xác nhận
 
@@ -70,21 +72,21 @@ Cập nhật gần nhất: 2026-10-21
 
 ## Đang thực hiện
 
-- Chuẩn bị bước đẩy mã nguồn lên GitHub và kết nối với Cloudflare Pages.
+- Kiểm tra thực tế website trên các thiết bị và chuẩn bị gắn tên miền riêng khi Dâu yêu cầu.
 
 ## Chưa quyết định hoặc để lại cho giai đoạn sau
 
 - Thay dần ảnh AI bằng ảnh chụp sản phẩm hoa thật của Dâu.
 - Kiểm tra thực tế đường dẫn Zalo trên các dòng máy điện thoại của khách hàng.
-- Kết nối tên miền chính thức khi Dâu mua xong (trỏ DNS về Cloudflare).
+- Gắn tên miền riêng chính thức (ví dụ: `tiemhoadaudau.vn` hoặc `tiemhoadaudau.com`).
 
 ## Kiểm tra gần nhất
 
-- Đã chạy `pnpm build`: build thành công ra thư mục `dist/`.
-- Đã kiểm tra dev server Cloudflare Pages qua `wrangler pages dev dist`: máy chủ khởi chạy cổng 8788, header bảo mật và cache được phân tích chuẩn xác, kiểm tra request trả về HTTP 200 OK.
-- Đã kiểm tra các file cấu hình Cloudflare: `wrangler.jsonc`, `public/_headers`, `.nvmrc`, `.node-version`.
+- Đã đẩy code lên GitHub repo `nhatminhbf24/tiemhoa` nhánh `main`.
+- Đã chạy `wrangler pages deploy dist` đưa mã nguồn lên `https://tiemhoa.pages.dev`.
+- Đã kiểm tra trực tiếp: Website trực tuyến, trả về mã 200 OK, SSL/HTTPS kích hoạt đầy đủ, bộ header bảo mật hoạt động chuẩn xác.
 
 ## Bước tiếp theo
 
-- Đưa các thay đổi cấu hình lên repository GitHub (`git commit` & `git push`).
-- Vào Cloudflare Pages Dashboard, chọn Connect to Git với repo `nhatminhbf24/tiemhoa` để triển khai.
+- Dâu trải nghiệm thử trang web trên điện thoại và máy tính qua đường link: https://tiemhoa.pages.dev.
+- Khi Dâu mua tên miền riêng, sẽ thực hiện gán tên miền vào Cloudflare Pages.

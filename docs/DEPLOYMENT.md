@@ -1,54 +1,28 @@
 # Triển khai website
 
-Trạng thái: **Đã cấu hình chuẩn hóa cho Cloudflare Pages và duy trì tương thích Tenten Node.js**.
+Trạng thái: **Đã triển khai thành công lên Cloudflare Pages (Live: https://tiemhoa.pages.dev)**.
 
 ---
 
-## 1. Cloudflare Pages (Phương án tối ưu & khuyến nghị)
+## 1. Cloudflare Pages (Đang chạy thực tế)
 
-Website Dâu Dâu là trang tĩnh React + Vite (không có database hay backend phức tạp), do đó **Cloudflare Pages** là nền tảng hoàn hảo nhất:
-- **Tốc độ vượt trội**: Được lưu trữ trên mạng lưới CDN toàn cầu của Cloudflare.
-- **Bảo mật & HTTPS**: Tự động cấp chứng chỉ SSL/HTTPS miễn phí.
-- **Tiết kiệm chi phí**: Gói miễn phí (Free Tier) thoải mái cho nhu cầu của tiệm hoa.
-- **Tự động hóa**: Khi bạn cập nhật code trên GitHub, Cloudflare tự động build và cập nhật website trong vài chục giây.
+Website Dâu Dâu đã được đưa lên mạng thành công bằng **Cloudflare Pages**:
+- **Trang chủ chính thức**: [https://tiemhoa.pages.dev](https://tiemhoa.pages.dev)
+- **Bản build gần nhất**: [https://53db89f4.tiemhoa.pages.dev](https://53db89f4.tiemhoa.pages.dev)
+- **Tốc độ & CDN**: Phân phối qua mạng lưới Edge CDN của Cloudflare, phản hồi nhanh dưới 100ms.
+- **Bảo mật & HTTPS**: Tự động kích hoạt chứng chỉ SSL/HTTPS miễn phí, hỗ trợ HTTP/2 & HTTP/3.
+- **Header bảo mật**: Cấu hình chống clickjacking (`SAMEORIGIN`), `nosniff`, `strict-origin-when-cross-origin`.
+- **Bộ nhớ đệm (Cache)**: Các file hình ảnh và thư viện đóng gói được cache trình duyệt tối đa 1 năm.
 
-### Cách A: Kết nối trực tiếp GitHub với Cloudflare Pages (Dễ nhất cho Dâu)
+### Cập nhật và triển khai sau này:
 
-1. Đăng nhập vào trang quản trị Cloudflare: [dash.cloudflare.com](https://dash.cloudflare.com).
-2. Ở thanh menu bên trái, chọn **Workers & Pages** > nhấn nút **Create application**.
-3. Chọn thẻ **Pages** > nhấn **Connect to Git**.
-4. Chọn tài khoản GitHub và chọn repository `nhatminhbf24/tiemhoa`.
-5. Điền thông tin cấu hình như sau:
-   - **Project name**: `tiemhoa` (hoặc `dau-dau-flower-shop`)
-   - **Production branch**: `main`
-   - **Framework preset**: Chọn `Vite`
-   - **Build command**: `pnpm build`
-   - **Build output directory**: `dist`
-   - **Root directory**: để trống (mặc định)
-   - **Environment variables (Biến môi trường)**: Đặt `NODE_VERSION` = `22` (Dự án cũng đã có sẵn file `.nvmrc` và `.node-version` trỏ tới Node 22).
-6. Bấm nút **Save and Deploy**. Cloudflare sẽ bắt đầu build và cấp ngay một đường link miễn phí dạng `*.pages.dev`.
-
-### Cách B: Triển khai từ máy tính bằng Wrangler CLI
-
-Dự án đã tích hợp sẵn công cụ `wrangler` của Cloudflare:
-1. Đăng nhập tài khoản Cloudflare trên máy tính (chỉ cần làm lần đầu):
-   ```bash
-   pnpm exec wrangler login
-   ```
-2. Xem thử website trên môi trường mô phỏng Cloudflare:
-   ```bash
-   pnpm pages:dev
-   ```
-3. Đẩy website lên Cloudflare Pages trực tiếp:
-   ```bash
-   pnpm pages:deploy
-   ```
-
-### Cấu hình chuẩn Cloudflare đã thiết lập trong mã nguồn:
-- `wrangler.jsonc`: File cấu hình định danh dự án và thư mục `dist` cho Cloudflare.
-- `.nvmrc` & `.node-version`: Cố định phiên bản Node.js 22 LTS cho máy chủ build Cloudflare.
-- `public/_headers`: Tối ưu cache trình duyệt (assets được cache 1 năm) và tăng cường bảo mật (chống clickjacking, nosniff, chính sách bảo vệ dữ liệu).
-- `package.json`: Bổ sung lệnh `pages:dev` và `pages:deploy`.
+- **Cách 1: Triển khai tự động từ Git (GitHub)**:
+  Mỗi khi bạn commit và đẩy code lên nhánh `main` của repo `nhatminhbf24/tiemhoa`, bạn có thể liên kết repo trong trang quản trị Cloudflare (Workers & Pages > tiemhoa > Settings > Builds & deployments > Connect Git) để Cloudflare tự động cập nhật web mỗi khi có code mới.
+- **Cách 2: Triển khai từ máy tính bằng 1 câu lệnh**:
+  ```bash
+  pnpm pages:deploy
+  ```
+  Lệnh này sẽ tự động tải thư mục `dist` mới nhất lên thẳng `tiemhoa.pages.dev`.
 
 ---
 
@@ -64,19 +38,17 @@ Dự án đã tích hợp sẵn công cụ `wrangler` của Cloudflare:
 ## 3. Tên miền riêng (Custom Domain)
 
 Khi Dâu mua tên miền (ví dụ: `tiemhoadaudau.vn` hoặc `tiemhoadaudau.com`):
-1. Vào Cloudflare Pages > Chọn dự án `tiemhoa`.
+1. Vào Cloudflare Dashboard > **Workers & Pages** > Chọn dự án **tiemhoa**.
 2. Chuyển sang thẻ **Custom domains** > Bấm **Set up a custom domain**.
 3. Nhập tên miền muốn gán và làm theo hướng dẫn trỏ bản ghi DNS của Cloudflare. Hệ thống sẽ tự động kích hoạt HTTPS mà không cần cài đặt thêm chứng chỉ.
 
 ---
 
-## Danh sách kiểm tra trước deploy
+## Danh sách kiểm tra sau deploy
 
-- [x] Build thành công trên máy local (`pnpm build`).
-- [x] Kiểm tra tương thích máy chủ Cloudflare Pages (`pnpm pages:dev`).
-- [x] Không có dữ liệu bí mật trong Git.
-- [x] Nội dung chính thức đã được duyệt.
-- [x] Giao diện điện thoại và máy tính đã được kiểm tra.
-- [x] Link, nút và biểu mẫu đã được kiểm tra.
-- [x] Cấu hình build Cloudflare Pages và Tenten đã được xác minh.
-- [x] Có phương án quay lại phiên bản Git ổn định gần nhất.
+- [x] Đẩy mã nguồn lên GitHub `main` thành công.
+- [x] Tạo dự án `tiemhoa` trên Cloudflare Pages thành công.
+- [x] Triển khai thư mục `dist` lên Cloudflare Pages thành công.
+- [x] Tên miền `https://tiemhoa.pages.dev` truy cập được với mã HTTP 200.
+- [x] HTTPS/SSL hoạt động trơn tru.
+- [x] Header bảo mật và cache hoạt động đúng như thiết kế.
